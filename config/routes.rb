@@ -1,4 +1,14 @@
 NoBeanLeftBehind::Application.routes.draw do
+  resources :users do
+    member do
+      post 'add_friend' => "friendships#create", :as => "add_friend"
+    end
+  end
+
+  get   '/login'  => "static_pages#login"
+  post  '/login'  => "static_pages#login"
+  get   '/logout' => "static_pages#logout"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
