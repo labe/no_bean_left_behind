@@ -14,4 +14,8 @@ class User < ActiveRecord::Base
   has_many	:friends, :through => :friendships, :uniq => true, :dependent => :destroy
   has_many 	:reverse_friendships, :foreign_key => :friend_id,
   					:class_name => "Friendship", :dependent =>:destroy
+
+  def is_friends?(user)
+    true if self.friendships.find_by_friend_id(user.id)
+  end
 end

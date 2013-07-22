@@ -1,4 +1,11 @@
 NoBeanLeftBehind::Application.routes.draw do
+  resources :users do
+    member do
+      post 'add_friend' => "friendships#create", :as => "add_friend"
+    end
+  end
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
