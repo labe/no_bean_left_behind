@@ -15,6 +15,15 @@ class User < ActiveRecord::Base
   has_many 	:reverse_friendships, :foreign_key => :friend_id,
   					:class_name => "Friendship", :dependent =>:destroy
 
+  def self.authenticate(params)
+    user = User.find_by_username(params[:username])
+    if user && user.authenticate(params[:password])
+      user
+    else
+      false
+    end
+  end
+
   def is_friends?(user)
     true if self.friendships.find_by_friend_id(user.id)
   end

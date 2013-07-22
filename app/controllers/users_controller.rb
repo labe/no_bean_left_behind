@@ -18,6 +18,6 @@ class UsersController < ApplicationController
 	def show
 		@current_user = current_user
 		@user = User.find(params[:id])
-		@friend = @current_user.is_friends?(@user)
+		@friend = @current_user ? @current_user.is_friends?(@user) : nil
 	end
 end

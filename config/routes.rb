@@ -5,6 +5,9 @@ NoBeanLeftBehind::Application.routes.draw do
     end
   end
 
+  get   '/login'  => "static_pages#login"
+  post  '/login'  => "static_pages#login"
+  get   '/logout' => "static_pages#logout"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
