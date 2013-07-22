@@ -3,7 +3,8 @@
 - else
 	%h3= "This is the profile page for " + @user.username
 	%h5= "This person is a friend!" if @friend
-	= button_to "Add this person as a friend!", add_friend_user_path(@user.id) if !@friend
+	-if @current_user
+		= button_to "Add this person as a friend!", add_friend_user_path(@user.id) if !@friend
 
 
 %h5= "Name: " + @user.name
