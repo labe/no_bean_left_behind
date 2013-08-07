@@ -1,10 +1,10 @@
-- if @current_user == @user
+- if current_user == @user
 	%h3= "Hey there, " + @user.username + "!"
 - else
 	%h3= "This is the profile page for " + @user.username
-	%h5= "This person is a friend!" if @friend
-	-if @current_user
-		= button_to "Add this person as a friend!", add_friend_user_path(@user.id) if !@friend
+	%h5= "This person is a friend!" if @friendship
+	-if current_user
+		= button_to "Add this person as a friend!", add_friend_user_path(@user.id) if !@friendship
 
 
 %h5= "Name: " + @user.name
