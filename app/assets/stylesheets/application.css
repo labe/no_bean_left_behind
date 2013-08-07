@@ -11,3 +11,57 @@
  *= require_self
  *= require_tree .
  */
+body {
+	font-family: Lato, Tahoma;
+}
+
+#header {
+	display: inline-block;
+	width: 100%;
+	background: #AAA;
+	height: 80px;
+}
+
+.home-link {
+	float:left;
+	padding-left: 10px;
+	line-height: 34px;
+}
+
+.header-links {
+	float:right;
+	line-height: 40px;
+}
+
+.header-links li {
+	display: inline;
+	font-size: 14px;
+	padding-right: 20px;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+h4 a {
+	color: black;
+}
+
+#user_form {
+	width: 260px;
+	display: inline-block;
+}
+
+label {
+	float: left;
+	line-height: 23px;
+}
+
+input {
+	float: right;
+}
+
+input[type=submit] {
+	clear: both;
+}
