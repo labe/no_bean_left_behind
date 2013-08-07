@@ -1,13 +1,15 @@
-%h4= flash[:error] if flash[:error]
+%h4= @error if @error
 
-= form_for @user, :url => login_path do |f|
-	= f.label						"Username: "
-	= f.text_field			:username, :autofocus => true
-	%br
-	= f.label						"Password: "
-	= f.password_field	:password
-	%br
-	= f.submit					"VALIDATE ME"
+#user_form
+	= form_for @user, :url => login_path do |f|
+		= f.label						"Username: "
+		= f.text_field			:username, :autofocus => true
+		%br
+		= f.label						"Password: "
+		= f.password_field	:password
+		%br
+		= f.submit					"VALIDATE ME"
 
-%h4 Don't have an account?
-= link_to "Join now!", new_user_path
+%h4 
+	Don't have an account?
+	= link_to "Join now!", new_user_path

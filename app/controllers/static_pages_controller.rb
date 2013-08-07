@@ -6,7 +6,8 @@ class StaticPagesController < ApplicationController
 				session[:user_id] = user.id
 				redirect_to user_path(user.id)
 			else
-				flash[:error] = "Errors in your login attempt, dollface. Try again?"
+				@error = "Errors in your login attempt, dollface. Try again?"
+				render "static_pages/login"
 			end
 		end
 	end
@@ -15,4 +16,5 @@ class StaticPagesController < ApplicationController
 		session[:user_id] = nil
 		redirect_to login_path
 	end
+
 end
