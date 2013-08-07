@@ -9,15 +9,15 @@ class UsersController < ApplicationController
 			session[:user_id] = user.id
 			redirect_to user_path(user.id)
 		else
-			flash[:error] = "Blast! There was a kerfuffle creating your account."
+			@error = "Blast! There was a kerfuffle creating your account."
 			p user.errors
-			redirect_to new_user_path
+			@user = User.new
+			render "users/new"
 		end
 	end
 
 	def show
-		@current_user = current_user
 		@user = User.find(params[:id])
-		@friend = @current_user ? @current_user.is_friends?(@user) : nil
+		@friendship = current_user.is_friends_with?(@user) if current_user
 	end
 end
